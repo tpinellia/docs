@@ -3,29 +3,55 @@
   url = ""
   weight = -110
 
-[[main]]
-  name = "Archives"
-  url = "post/rich-content/"
-  weight = -109
-
 # Submenus are done this way: parent -> identifier
 [[main]]
-  name = "Links"
-  identifier = "Links"
+  name = "Cloud Native"
+  identifier = "Links01"
+  weight = -109
+[[main]]
+  parent = "Links01"
+  name = "docker"
+  url = "post/cn/docker/"
+[[main]]
+  parent = "Links01"
+  name = "kubernetes"
+  url = "post/cn/kubernetes/"
+
+[[main]]
+  name = "PL"
+  identifier = "Links00"
   weight = -108
 [[main]]
-  parent = "Links"
-  name = "LinkedIn"
-  url = "https://www.linkedin.com/"
+  parent = "Links00"
+  name = "python"
+  url = "post/pl/python/"
 [[main]]
-  parent = "Links"
-  name = "Twitter"
-  url = "https://twitter.com/"
+  parent = "Links00"
+  name = "golang"
+  url = "post/pl/golang/"
+[[main]]
+  parent = "Links00"
+  name = "rust"
+  url = "post/pl/rust/"
+
+[[main]]
+  name = "Linux"
+  identifier = "Links02"
+  weight = -107
+[[main]]
+  parent = "Links02"
+  name = "shell"
+  url = "post/linux/shell/"
+
+[[main]]
+  name = "Others"
+  url = "post/others/"
+  weight = -106
 
 [[main]]
   name = "About"
   url = "about/"
-  weight = -107
+  weight = -105
 
 # social menu links
 
@@ -33,19 +59,19 @@
   name = "github"
   type = "social"
   weight = 1
-  url = "https://github.com/#"
-[[social]]
-  name = "twitter"
-  weight = 2
-  url = "https://twitter.com/#"
-[[social]]
-  name = "linkedin"
-  weight = 3
-  url = "https://www.linkedin.com/in/#"
-[[social]]
-  name = "rss"
-  weight = 4
-  url = "index.xml"
+  url = "https://github.com/tpinellia"
+# [[social]]
+#   name = "twitter"
+#   weight = 2
+#   url = "https://twitter.com/#"
+# [[social]]
+#   name = "linkedin"
+#   weight = 3
+#   url = "https://www.linkedin.com/in/#"
+# [[social]]
+#   name = "rss"
+#   weight = 4
+#   url = "index.xml"
 
 # other supported social links
 # name = "youtube"
