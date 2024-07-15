@@ -93,4 +93,100 @@ fn build_user(email: String, username: String) -> User {
     };
 ```
 
+####  元祖结构体
+
+可定义与元祖类似的结构体，称为 `元组结构体（tuple structs）`。元组结构体有着结构体名称提供的含义，但没有具体的字段名，只有字段的类型。
+
+```rust
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
+fn main() {
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
+}
+```
+
+注意 black 和 origin 值的类型不同，因为它们是不同的元组结构体的实例；其他方面，元组结构体实例类似于元组，你可以将它们解构为单独的部分，也可以使用 `.` 后跟索引来访问单独的值，等等。
+
+#### 类单元结构体
+
+我们也可以定义一个没有任何字段的结构体，它们被称为 `类单元结构体（unit-like structs）`，因为它们类似于 `()`，即“元组类型”一节中提到的 `unit（单元）类型` 。适用于需要在某个类型上实现某个 trait，但又没有想要存储的数据。
+
+```rust
+struct AlwaysEqual;
+
+fn main() {
+    let subject = AlwaysEqual;
+}
+```
+
 ## 方法语法
+
+`方法（method）`与函数类似：它们使用 fn 关键字和名称声明，可以拥有参数和返回值，同时包含在某处调用该方法时会执行的代码。不过方法与函数是不同的，因为它们在 结构体，枚举 或者 trait对象 的上下文中被定义，并且它们第一个参数总是 `self`，它代表调用该方法的结构体实例。
+
+```rust
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
+fn main() {
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        rect1.area()
+    );
+}
+```
+
+在 `impl` 块 （impl 是 implementation 的缩写）中定义方法。方法的第一个参数可以是 `self`，也可以获得其 所有权(`&self`) 或 可变借用(`&mut self`)，和其他参数一样。调用时使用 `实例.方法名(参数)`。在方法 `fn area(&self) -> u32 { self.width * self.height }`中，`&self` 实际上是 `self: &Self`缩写，在一个 `impl` 块中，`Self`类型是`impl`块的类型的别名，在这个例子中，`Self`指的是`Rectangle`。
+
+#### 关联函数
+
+所有在 `impl` 块中定义的函数被称为 `关联函数（associated functions）`，因为它们与 `impl` 后面命名的类型相关。方法就是比较特殊的关联函数，只有当以 `self` 为第一参数的关联函数才叫方法；当然也可以定义不以 `self` 为第一参数的关联函数（因此不是方法），因为它们并不作用于一个结构体的实例。不是方法的关联函数经常被用作返回一个结构体新实例的构造函数。这些函数的名称通常起做 `new`，当然也可以使用别的名字。
+
+```rust
+
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+impl Rectangle {
+    fn new(width: u32,height: u32) -> Self {
+        Self {
+            width: width,
+            height: height,
+        }
+    }
+
+    fn area(&self) -> u32 {
+        self.width * self.height
+    }
+}
+
+fn main(){
+    let rectangle = Rectangle::new(10,20);
+    println!(
+        "The area of the rectangle is {} square pixels.",
+        rectangle.area()
+    );
+}
+
+```
+
+关键字 `Self` 在函数的返回类型中代指在 `impl` 关键字后出现的类型，在这里是 `Rectangle`。
+
+使用结构体名和 `::` 语法来调用这个关联函数：比如 `let sq = Rectangle::square(3);`。
