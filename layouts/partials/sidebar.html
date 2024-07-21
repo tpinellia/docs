@@ -41,7 +41,11 @@
     </div>
     {{ end }}
 
-    {{ if .Params.toc }}
+    {{- $tocInSidebar := true }}
+    {{- if eq $s.showTocInSidebar false }}
+    {{ $tocInSidebar = false }}
+    {{- end}}
+    {{ if (and (.Params.toc) ($tocInSidebar)) }}
     <h2>{{ T "overview" }}</h2>
     <div class="post_toc">
     </div>
