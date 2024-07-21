@@ -44,3 +44,78 @@
     text-align: right;
 
 // 上一页下一页 end
+
+// toc start
+
+.sidebar
+  &_inner
+    position: fixed
+    &::before
+      content: ""
+      padding: 0.5px
+      top: 0
+      bottom: 0
+      // background: var(--light)
+      background: linear-gradient(to bottom, var(--haze), var(--light), var(--haze))
+      position: absolute
+      left: -2rem
+        // display: none
+
+.post_toc 
+	overflow-y: auto
+
+.post_toc>.toc-list 
+	overflow: hidden;
+	position: relative
+
+.post_toc>.toc-list li 
+	list-style: none
+
+.toc-list 
+	margin: 0;
+	padding-left: 10px
+
+a.toc-link 
+	color: currentColor;
+	height: 100%
+
+.is-collapsible 
+	max-height: 1000px;
+	overflow: hidden;
+	transition: all 300ms ease-in-out
+
+.is-collapsed 
+	max-height: 0
+
+.is-position-fixed 
+	position: fixed !important;
+	top: 0;
+
+.active
+	font-weight: 700;
+
+.toc-link::before 
+	background-color: #f2f2f2;
+	content: " ";
+	display: inline-block;
+	height: inherit;
+	left: 0;
+	margin-top: -1px;
+	position: absolute;
+	width: 1px
+
+.active::before 
+	background-color: #0077b8
+
+.footer
+  // border-top: 1px solid $xhaze
+  background: var(--footer-bg)
+  margin-top: 50rem
+  font-size: 0.9rem
+  &_inner
+    @include content
+    display: grid
+    grid-template-columns: 4rem 1fr
+    align-items: center
+    position: relative
+// toc end
