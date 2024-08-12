@@ -127,4 +127,88 @@ pub fn notify(item: &impl Summary) {
 }
 ```
 
+#### Trait Bound 语法
+
+`impl Trait` 语法适用于直观的例子，它实际上是一种较长形式我们称为 *trait bound* 语法的语法糖。
+
+```rust
+pub fn notify<T: Summary>(item: &T) {
+    println!("Breaking news! {}", item.summarize());
+}
+```
+
+`pub fn notify(item1: &impl Summary, item2: &impl Summary) {}` 这适用于 item1 和 item2 允许是不同类型的情况（只要它们都实现了 Summary）。如果需要强制它们都是相同类型，那么需要使用 *trait bound* 语法糖： `pub fn notify<T: Summary>(item1: &T, item2: &T) {}`
+
+#### 通过 + 指定多个 trait bound
+
+`pub fn notify(item: &(impl Summary + Display)) {}`，或者`pub fn notify<T: Summary + Display>(item: &T) {}`
+
+#### 通过 where 简化 trait bound
+
+使用过多的 `trait bound` 也有缺点。每个泛型有其自己的 `trait bound`，所以有多个泛型参数的函数在名称和参数列表之间会有很长的 `trait bound` 信息，这使得函数签名难以阅读。例如:`fn some_function<T: Display + Clone, U: Clone + Debug>(t: &T, u: &U) -> i32 {}`，我们可以使用`where` 从句精简：
+
+```rust
+fn some_function<T, U>(t: &T, u: &U) -> i32
+where
+    T: Display + Clone,
+    U: Clone + Debug,
+{
+```
+
+### 返回实现了 trait 的类型
+
+也可以在返回值中使用 `impl Trait` 语法，来返回实现了某个 trait 的类型：
+
+```rust
+fn returns_summarizable() -> impl Summary {
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(
+            "of course, as you probably already know, people",
+        ),
+        reply: false,
+        retweet: false,
+    }
+}
+```
+
+#### 使用 trait bound 有条件地实现方法
+
+通过使用带有 `trait bound` 的泛型参数的 `impl` 块，可以有条件地只为那些实现了特定 trait 的类型实现方法。
+
+```rust
+use std::fmt::Display;
+
+struct Pair<T> {
+    x: T,
+    y: T,
+}
+
+// 无论T是什么类型，都为它实现new方法
+impl<T> Pair<T> {
+    fn new(x: T, y: T) -> Self {
+        Self { x, y }
+    }
+}
+
+// 只有T实现了Display + PartialOrd这两个trait的时候，才为它实现cmp_display方法
+impl<T: Display + PartialOrd> Pair<T> {
+    fn cmp_display(&self) {
+        if self.x >= self.y {
+            println!("The largest member is x = {}", self.x);
+        } else {
+            println!("The largest member is y = {}", self.y);
+        }
+    }
+}
+```
+
+可以对任何实现了特定 trait 的类型有条件地实现 trait。对任何满足特定 `trait bound` 的类型实现 trait 被称为 `blanket implementations`
+
+```rust
+impl<T: Display> ToString for T {
+    // --snip--
+}
+```
+
 ## 生命周期确保引用有效
