@@ -68,7 +68,7 @@
 
 
 
-<link rel="preload" href="http://localhost:1313/css/styles.dc38388a8f0b890e788bd3a99b7495d14e7d5ac4359ed3b49abeb778497863b284ad4cc7e496ef58c84139295f9bafed82f5a41345eda86bd2d429cccb7c2596.css" integrity = "sha512-3Dg4io8LiQ54i9Opm3SV0U59WsQ1ntO0mr63eEl4Y7KErUzH5JbvWMhBOSlfm6/tgvWkE0XtqGvS1CnMy3wllg==" as="style" crossorigin="anonymous">
+<link rel="preload" href="http://localhost:1313/css/styles.f97bb8dc9a5ba803fe2b33513f352522409835b298a202819e345a8e2871e81f6ca67ecd5e6f1d1e9e7ab508073f99856c229393f44032366730c4fc94d5151a.css" integrity = "sha512-&#43;Xu43JpbqAP&#43;KzNRPzUlIkCYNbKYogKBnjRajihx6B9spn7NXm8dHp56tQgHP5mFbCKTk/RAMjZnMMT8lNUVGg==" as="style" crossorigin="anonymous">
 
 
 
@@ -76,7 +76,7 @@
 "sha512-ZC0MqY7QKT3PtmU5u&#43;1FZ9OZZgm4CYVEE4QAwf3VjbBQGVBZJzTNU6Doa7TbUE5Ut6BseC3QvVKCABbyrGyfaw==" crossorigin="anonymous">
 
 
-<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/styles.dc38388a8f0b890e788bd3a99b7495d14e7d5ac4359ed3b49abeb778497863b284ad4cc7e496ef58c84139295f9bafed82f5a41345eda86bd2d429cccb7c2596.css" integrity="sha512-3Dg4io8LiQ54i9Opm3SV0U59WsQ1ntO0mr63eEl4Y7KErUzH5JbvWMhBOSlfm6/tgvWkE0XtqGvS1CnMy3wllg==" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/styles.f97bb8dc9a5ba803fe2b33513f352522409835b298a202819e345a8e2871e81f6ca67ecd5e6f1d1e9e7ab508073f99856c229393f44032366730c4fc94d5151a.css" integrity="sha512-&#43;Xu43JpbqAP&#43;KzNRPzUlIkCYNbKYogKBnjRajihx6B9spn7NXm8dHp56tQgHP5mFbCKTk/RAMjZnMMT8lNUVGg==" crossorigin="anonymous">
 
   </head>
   <body
@@ -161,10 +161,10 @@
 </header>
 
     <main>
-  
+
 <div class="grid-inverse wrap content">
-  <article class="post_content">
-    <h1 class="post_title">常见集合</h1>
+    <article class="post_content">
+        <h1 class="post_title">常见集合</h1>
   <div class="post_meta">
     <span><svg class="icon">
   <title>calendar</title>
@@ -177,7 +177,7 @@
     <span class="post_time"> · 4 分钟阅读</span>
   </div>
 
-    <div class="post_body"><h2 id="使用-vector-储存列表">使用 Vector 储存列表</h2>
+        <div class="post_body"><h2 id="使用-vector-储存列表">使用 Vector 储存列表</h2>
 <p>类型 <code>Vec&lt;T&gt;</code>，也被称为 vector。它允许我们在一个单独的数据结构中储存多于一个的值，它在内存中彼此相邻地排列所有的值。</p>
 <h4 id="新建vector">新建vector</h4>
 <p>一般有两种方式创建vector,一种是使用 <code>Vec::new</code> 函数；另一种是使用 <code>vec!</code>宏。通常我们较多使用的是 <code>vec!</code> 宏的形式创建 vector。</p>
@@ -371,7 +371,29 @@
 </span></span></span></code></pre></div><h4 id="哈希函数">哈希函数</h4>
 <p>HashMap 默认使用一种叫做 SipHash 的哈希函数，它可以抵御涉及哈希表（hash table）1 的拒绝服务（Denial of Service, DoS）攻击。然而这并不是可用的最快的算法，不过为了更高的安全性值得付出一些性能的代价。如果性能监测显示此哈希函数非常慢，以致于你无法接受，你可以指定一个不同的 hasher 来切换为其它函数。hasher 是一个实现了 <code>BuildHasher</code> trait 的类型。第十章会讨论 trait 和如何实现它们。你并不需要从头开始实现你自己的 hasher；<a href="https://crates.io">crates.io</a> 有其他人分享的实现了许多常用哈希算法的 hasher 的库。</p>
 
-    </div><div class="post_comments">
+        </div>
+
+        
+        
+        
+
+
+<nav class="paginav">
+    
+    <a class="prev" href="http://localhost:1313/post/pl/rust/07-%E5%8C%85crate%E4%B8%8E%E6%A8%A1%E5%9D%97/">
+        <span class="title">« 上一篇</span>
+        <br>
+        <span class="title">使用包、Crate 和模块管理不断增长的项目</span>
+    </a>
+    
+    <a class="next" href="http://localhost:1313/post/pl/rust/09-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/">
+        <span class="title">下一篇 »</span>
+        <br>
+        <span class="title">错误处理</span>
+    </a>
+</nav>
+        
+        <div class="post_comments">
   
   
   
@@ -381,7 +403,7 @@
 
 
 
-  </article>
+    </article>
 <aside class="sidebar">
   <section class="sidebar_inner">
     <br>
@@ -462,7 +484,7 @@
   </section>
 </aside>
 
-  
+    
 </div>
     </main><svg width="0" height="0" class="hidden">
   <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">

@@ -68,7 +68,7 @@
 
 
 
-<link rel="preload" href="http://localhost:1313/css/styles.dc38388a8f0b890e788bd3a99b7495d14e7d5ac4359ed3b49abeb778497863b284ad4cc7e496ef58c84139295f9bafed82f5a41345eda86bd2d429cccb7c2596.css" integrity = "sha512-3Dg4io8LiQ54i9Opm3SV0U59WsQ1ntO0mr63eEl4Y7KErUzH5JbvWMhBOSlfm6/tgvWkE0XtqGvS1CnMy3wllg==" as="style" crossorigin="anonymous">
+<link rel="preload" href="http://localhost:1313/css/styles.f97bb8dc9a5ba803fe2b33513f352522409835b298a202819e345a8e2871e81f6ca67ecd5e6f1d1e9e7ab508073f99856c229393f44032366730c4fc94d5151a.css" integrity = "sha512-&#43;Xu43JpbqAP&#43;KzNRPzUlIkCYNbKYogKBnjRajihx6B9spn7NXm8dHp56tQgHP5mFbCKTk/RAMjZnMMT8lNUVGg==" as="style" crossorigin="anonymous">
 
 
 
@@ -76,7 +76,7 @@
 "sha512-ZC0MqY7QKT3PtmU5u&#43;1FZ9OZZgm4CYVEE4QAwf3VjbBQGVBZJzTNU6Doa7TbUE5Ut6BseC3QvVKCABbyrGyfaw==" crossorigin="anonymous">
 
 
-<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/styles.dc38388a8f0b890e788bd3a99b7495d14e7d5ac4359ed3b49abeb778497863b284ad4cc7e496ef58c84139295f9bafed82f5a41345eda86bd2d429cccb7c2596.css" integrity="sha512-3Dg4io8LiQ54i9Opm3SV0U59WsQ1ntO0mr63eEl4Y7KErUzH5JbvWMhBOSlfm6/tgvWkE0XtqGvS1CnMy3wllg==" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/styles.f97bb8dc9a5ba803fe2b33513f352522409835b298a202819e345a8e2871e81f6ca67ecd5e6f1d1e9e7ab508073f99856c229393f44032366730c4fc94d5151a.css" integrity="sha512-&#43;Xu43JpbqAP&#43;KzNRPzUlIkCYNbKYogKBnjRajihx6B9spn7NXm8dHp56tQgHP5mFbCKTk/RAMjZnMMT8lNUVGg==" crossorigin="anonymous">
 
   </head>
   <body
@@ -161,10 +161,10 @@
 </header>
 
     <main>
-  
+
 <div class="grid-inverse wrap content">
-  <article class="post_content">
-    <h1 class="post_title">错误处理</h1>
+    <article class="post_content">
+        <h1 class="post_title">错误处理</h1>
   <div class="post_meta">
     <span><svg class="icon">
   <title>calendar</title>
@@ -177,9 +177,9 @@
     <span class="post_time"> · 2 分钟阅读</span>
   </div>
 
-      <div class="post_toc">
-        <h2>文章目录</h2>
-        <nav id="TableOfContents">
+        <div class="post_toc">
+            <h2>文章目录</h2>
+            <nav id="TableOfContents">
   <ul>
     <li><a href="#用-panic-处理不可恢复的错误">用 panic! 处理不可恢复的错误</a></li>
     <li><a href="#用-result-处理可恢复的错误">用 Result 处理可恢复的错误</a>
@@ -190,9 +190,9 @@
     </li>
   </ul>
 </nav>
-      </div>
-    
-    <div class="post_body"><p>Rust 将错误分为两大类：</p>
+        </div>
+        
+        <div class="post_body"><p>Rust 将错误分为两大类：</p>
 <ul>
 <li><code>可恢复的（recoverable）</code>，对于一个可恢复的错误，比如文件未找到的错误，我们很可能只想向用户报告问题并重试操作。rust 使用 <code>Result&lt;T, E&gt;</code> 类型，来处理可恢复的错误。</li>
 <li><code>不可恢复的（unrecoverable）</code>，不可恢复的错误总是 bug 出现的征兆，比如试图访问一个超过数组末端的位置，因此我们要立即停止程序。rust 使用 <code>panic!</code> 宏，在程序遇到不可恢复的错误时停止执行。</li>
@@ -275,7 +275,29 @@
 </span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">    </span><span class="nb">Ok</span><span class="p">(</span><span class="n">username</span><span class="p">)</span><span class="w">
 </span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
 </span></span></span></code></pre></div>
-    </div><div class="post_comments">
+        </div>
+
+        
+        
+        
+
+
+<nav class="paginav">
+    
+    <a class="prev" href="http://localhost:1313/post/pl/rust/08-%E5%B8%B8%E8%A7%81%E9%9B%86%E5%90%88/">
+        <span class="title">« 上一篇</span>
+        <br>
+        <span class="title">常见集合</span>
+    </a>
+    
+    <a class="next" href="http://localhost:1313/post/pl/rust/10-%E6%B3%9B%E5%9E%8Btrait-%E5%92%8C%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+        <span class="title">下一篇 »</span>
+        <br>
+        <span class="title">泛型、Trait 和生命周期</span>
+    </a>
+</nav>
+        
+        <div class="post_comments">
   
   
   
@@ -285,7 +307,7 @@
 
 
 
-  </article>
+    </article>
 <aside class="sidebar">
   <section class="sidebar_inner">
     <br>
@@ -366,7 +388,7 @@
   </section>
 </aside>
 
-  
+    
 </div>
     </main><svg width="0" height="0" class="hidden">
   <symbol viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" id="facebook">

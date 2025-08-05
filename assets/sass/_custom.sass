@@ -1,0 +1,46 @@
+// add customs styles and general overrides here
+// due to the cascading nature of css, if you try to override theme css variables in this file, those changes will not apply. Instead, override css variables in the `override.sass` file
+// we recommend not editing this file directly. Instead, create an `assets/sass/_custom.sass` file at the root level of your site.
+// if you edit this file directly, you will have to resolve git conflicts when and if you decide to pull changes we make on the theme
+
+// 上一页下一页 start 
+.paginav 
+    margin: 10px 0;
+    display: flex;
+    line-height: 30px;
+    border-radius: var(--radius);
+    border-radius: var(--radius);
+    //background: var(--code-bg);
+    border: 1pxsolidvar(--border);
+
+
+.paginav a 
+    padding-inline-start: 14px;
+    padding-inline-end: 14px;
+    border-radius: var(--radius);
+
+
+.paginav .title 
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: large;
+    color: var(--secondary);
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: pre-wrap !important;
+
+
+.paginav .prev,
+.paginav .next 
+    width: 40%;
+
+
+.paginav span:hover:not(.title) 
+    box-shadow: 0 1px 0;
+
+
+.paginav .next 
+    margin-inline-start: auto;
+    text-align: right;
+
+// 上一页下一页 end
